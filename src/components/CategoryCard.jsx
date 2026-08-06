@@ -15,6 +15,7 @@ export default function CategoryCard({ category, links, onEditCategory, onDelete
     if (sectionLinks.length === 0) return null;
     return (
       <div className="link-section">
+        <h4 className="section-title">{title}</h4>
         <ul className="link-list">
           {sectionLinks.map(link => {
             // Determine class suffix, default to 'other' if not match
@@ -28,7 +29,7 @@ export default function CategoryCard({ category, links, onEditCategory, onDelete
                   rel="noopener noreferrer" 
                   className="link-title" 
                   style={{ flex: 1, textAlign: 'center', justifyContent: 'center', color: 'var(--text-main)', textDecoration: 'none' }}
-                  title={link.description ? link.description : "Click to visit"}
+                  title="Click to visit"
                 >
                   {link.title}
                 </a>
