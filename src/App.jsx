@@ -171,29 +171,31 @@ function App() {
   return (
     <div className="container">
       <Toaster position="bottom-right" toastOptions={{ style: { background: '#333', color: '#fff', borderRadius: '8px' } }} />
-      <header className="header" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1.5rem' }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', textAlign: 'left', flex: '1 1 auto' }}>
+      <header className="header" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '1.5rem' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', textAlign: 'left' }}>
           <img src="https://static.wixstatic.com/media/68b92a_d71e34133826499983234774dea1945b~mv2.png/v1/fill/w_186,h_156,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/RKD-Logo.png" alt="Logo" style={{ height: '60px' }} />
           <div>
             <h1 className="fancy-header-title" style={{ fontSize: '2rem' }}>WebApps Directory</h1>
           </div>
         </div>
 
-        <div style={{ display: 'flex', justifyContent: 'center', flex: '1 1 auto', minWidth: '250px' }}>
-          <Clock />
-        </div>
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: '1rem' }}>
+          <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
+            <Clock />
+          </div>
 
-        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', flex: '1 1 auto', justifyContent: 'flex-end', flexWrap: 'wrap' }}>
-          <h1 className="fancy-header-title" style={{ fontSize: '1.8rem', padding: '0.4rem 1rem' }}>RKD Furnishings Private Limited</h1>
-          <button 
-            className="btn-primary"
-            onClick={() => {
-              setEditingCategory(null);
-              setIsCategoryModalOpen(true);
-            }}
-          >
-            <Plus size={20} /> Add New Title
-          </button>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap', justifyContent: 'flex-end' }}>
+            <h1 className="fancy-header-title" style={{ fontSize: '1.8rem', padding: '0.4rem 1rem' }}>RKD Furnishings Private Limited</h1>
+            <button 
+              className="btn-primary"
+              onClick={() => {
+                setEditingCategory(null);
+                setIsCategoryModalOpen(true);
+              }}
+            >
+              <Plus size={20} /> Add New Title
+            </button>
+          </div>
         </div>
       </header>
 
