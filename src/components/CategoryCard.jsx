@@ -65,24 +65,6 @@ export default function CategoryCard({ category, links, onEditCategory, onDelete
         </div>
       </div>
       
-      {category.description && (
-        <div className="card-description-container">
-          <button 
-            className="desc-toggle-btn"
-            onClick={() => setIsDescExpanded(!isDescExpanded)}
-          >
-            {isDescExpanded ? <ChevronUp size={16} /> : <ChevronDown size={16} />} 
-            {isDescExpanded ? 'Hide Description' : 'Show Description'}
-          </button>
-          
-          {isDescExpanded && (
-            <div className="card-description">
-              {category.description}
-            </div>
-          )}
-        </div>
-      )}
-      
       <div className="sections-container">
         {links.length === 0 ? (
           <div style={{padding: '2rem 1rem', textAlign: 'center', color: 'var(--text-muted)'}}>
