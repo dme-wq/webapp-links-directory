@@ -1,0 +1,21 @@
+{
+  "name": "RKD WebApps Directory",
+  "short_name": "RKD Apps",
+  "description": "Store Miscellaneous System Directory for RKD Furnishings",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#1e293b",
+  "icons": [
+    {
+      "src": "https://static.wixstatic.com/media/68b92a_d71e34133826499983234774dea1945b~mv2.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "https://static.wixstatic.com/media/68b92a_d71e34133826499983234774dea1945b~mv2.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

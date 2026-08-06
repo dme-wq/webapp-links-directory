@@ -6,6 +6,7 @@ import LinkModal from './components/LinkModal';
 import ConfirmModal from './components/ConfirmModal';
 import Clock from './components/Clock';
 import LockScreen from './components/LockScreen';
+import InstallPrompt from './components/InstallPrompt';
 import { Plus } from 'lucide-react';
 import { Toaster, toast } from 'react-hot-toast';
 import './index.css';
@@ -179,6 +180,7 @@ function App() {
   return (
     <div className="container">
       <Toaster position="bottom-right" toastOptions={{ style: { background: '#333', color: '#fff', borderRadius: '8px' } }} />
+      <InstallPrompt />
       <header className="header" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '1.5rem' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', textAlign: 'left' }}>
           <img src="https://static.wixstatic.com/media/68b92a_d71e34133826499983234774dea1945b~mv2.png/v1/fill/w_186,h_156,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/RKD-Logo.png" alt="Logo" style={{ height: '60px' }} />
