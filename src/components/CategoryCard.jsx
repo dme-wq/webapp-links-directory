@@ -28,7 +28,7 @@ export default function CategoryCard({ category, links, onEditCategory, onDelete
                   target="_blank" 
                   rel="noopener noreferrer" 
                   className="link-title" 
-                  style={{ flex: 1, textAlign: 'center', justifyContent: 'center', color: 'var(--text-main)', textDecoration: 'none', fontWeight: '500' }}
+                  style={{ flex: 1, textAlign: 'center', justifyContent: 'center', color: 'var(--text-main)', textDecoration: 'none' }}
                   title="Click to visit"
                 >
                   {link.title}

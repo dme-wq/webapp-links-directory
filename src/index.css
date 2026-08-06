@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&display=swap');
 
 :root {
   --bg-main: #f3f4f6;
@@ -245,8 +246,11 @@ body {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  font-size: 0.95rem;
-  transition: opacity 0.2s;
+  font-size: 1.1rem;
+  font-family: 'Fredoka', cursive, sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  transition: opacity 0.2s, color 0.2s;
 }
 
 .link-title:hover {
