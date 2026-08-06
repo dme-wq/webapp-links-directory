@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
 
 :root {
@@ -274,9 +275,9 @@ body {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  font-size: 0.7rem; /* Reduced font size further (2x) */
-  font-family: 'Fredoka', cursive, sans-serif;
-  font-weight: 500; /* Removed bold (700) -> set to normal/medium (500) */
+  font-size: 0.85rem; /* Slightly larger as serif fonts appear smaller */
+  font-family: 'Playfair Display', serif; /* Replaced Fredoka with elegant serif */
+  font-weight: 600; /* Semi-bold for good visibility */
   letter-spacing: 0.02em;
   transition: opacity 0.2s, color 0.2s;
   word-break: break-word;
