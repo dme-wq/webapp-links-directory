@@ -29,7 +29,7 @@ export default function CategoryCard({ category, links, onEditCategory, onDelete
                   rel="noopener noreferrer" 
                   className="link-title" 
                   style={{ flex: 1, textAlign: 'center', justifyContent: 'center', color: 'var(--text-main)', textDecoration: 'none' }}
-                  title="Click to visit"
+                  title={link.description ? link.description : "Click to visit"}
                 >
                   {link.title}
                 </a>

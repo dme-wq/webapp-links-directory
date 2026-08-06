@@ -4,16 +4,19 @@ export default function LinkModal({ isOpen, onClose, onSave, initialData }) {
   const [title, setTitle] = useState('');
   const [url, setUrl] = useState('');
   const [section, setSection] = useState('Frontend');
+  const [description, setDescription] = useState('');
 
   useEffect(() => {
     if (initialData) {
       setTitle(initialData.title || '');
       setUrl(initialData.url || '');
       setSection(initialData.section || 'Frontend');
+      setDescription(initialData.description || '');
     } else {
       setTitle('');
       setUrl('');
       setSection('Frontend');
+      setDescription('');
     }
   }, [initialData, isOpen]);
 
@@ -25,7 +28,7 @@ export default function LinkModal({ isOpen, onClose, onSave, initialData }) {
     if (!/^https?:\/\//i.test(finalUrl)) {
       finalUrl = 'http://' + finalUrl;
     }
-    onSave({ title, url: finalUrl, section });
+    onSave({ title, url: finalUrl, section, description });
   };
 
   return (
@@ -57,6 +60,16 @@ export default function LinkModal({ isOpen, onClose, onSave, initialData }) {
               onChange={e => setTitle(e.target.value)} 
               required
               placeholder="e.g. Vercel Dashboard"
+            />
+          </div>
+          <div className="form-group">
+            <label>Description (Optional)</label>
+            <textarea 
+              className="form-control" 
+              value={description} 
+              onChange={e => setDescription(e.target.value)} 
+              placeholder="e.g. Used for deploying the frontend"
+              rows={2}
             />
           </div>
           <div className="form-group">
