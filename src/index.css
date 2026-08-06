@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
 
 :root {
   --bg-main: #f3f4f6;
@@ -440,14 +441,9 @@ body {
   color: var(--text-main);
 }
 
-.header h1 {
-  font-size: 2rem;
-  color: var(--text-main);
-}
-
 .fancy-header-title {
-  font-family: 'Pacifico', cursive;
-  color: #ffffff;
+  font-family: 'Lobster', cursive;
+  color: #ffffff !important;
   background-color: #b01017; /* Deep red background */
   padding: 0.5rem 1.5rem;
   border-radius: 12px;
