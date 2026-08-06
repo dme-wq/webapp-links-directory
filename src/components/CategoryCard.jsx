@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Edit2, Trash2, ExternalLink, ChevronDown, ChevronUp } from 'lucide-react';
+import { Edit2, Trash2, ChevronDown, ChevronUp } from 'lucide-react';
 
 export default function CategoryCard({ category, links, onEditCategory, onDeleteCategory, onAddLink, onEditLink, onDeleteLink }) {
   const [isDescExpanded, setIsDescExpanded] = useState(false);
@@ -17,24 +17,33 @@ export default function CategoryCard({ category, links, onEditCategory, onDelete
       <div className="link-section">
         <h4 className="section-title">{title}</h4>
         <ul className="link-list">
-          {sectionLinks.map(link => (
-            <li key={link.id} className="link-item rainbow-bg">
-              <div className="link-title" style={{ flex: 1, textAlign: 'center', justifyContent: 'center' }}>
-                {link.title}
-              </div>
-              <div className="link-actions">
-                <a href={link.url} target="_blank" rel="noopener noreferrer" className="icon-button" title="Visit">
-                  <ExternalLink size={14} />
+          {sectionLinks.map(link => {
+            // Determine class suffix, default to 'other' if not match
+            const sec = (link.section || 'other').toLowerCase();
+            const validSec = ['frontend', 'backend', 'database'].includes(sec) ? sec : 'other';
+            return (
+              <li key={link.id} className={`link-item rainbow-bg-${validSec}`}>
+                <a 
+                  href={link.url} 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="link-title" 
+                  style={{ flex: 1, textAlign: 'center', justifyContent: 'center', color: 'var(--text-main)', textDecoration: 'none', fontWeight: '500' }}
+                  title="Click to visit"
+                >
+                  {link.title}
                 </a>
-                <button className="icon-button" onClick={() => onEditLink(link)} title="Edit Link">
-                  <Edit2 size={14} />
-                </button>
-                <button className="icon-button" onClick={() => onDeleteLink(link.id)} title="Delete Link">
-                  <Trash2 size={14} />
-                </button>
-              </div>
-            </li>
-          ))}
+                <div className="link-actions">
+                  <button className="icon-button" onClick={() => onEditLink(link)} title="Edit Link">
+                    <Edit2 size={14} />
+                  </button>
+                  <button className="icon-button" onClick={() => onDeleteLink(link.id)} title="Delete Link">
+                    <Trash2 size={14} />
+                  </button>
+                </div>
+              </li>
+            );
+          })}
         </ul>
       </div>
     );

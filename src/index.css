@@ -168,16 +168,55 @@ body {
   transition: background-color 0.2s, transform 0.2s;
 }
 
-.rainbow-bg {
-  background: linear-gradient(45deg, rgba(255,173,173,0.3), rgba(255,214,165,0.3), rgba(253,255,182,0.3), rgba(202,255,191,0.3), rgba(155,246,255,0.3), rgba(160,196,255,0.3), rgba(189,178,255,0.3), rgba(255,198,255,0.3));
-  background-size: 300% 300%;
-  animation: rainbow 8s ease infinite;
+/* Frontend: Warm Colors (Reds, Oranges, Yellows) */
+.rainbow-bg-frontend {
+  background: linear-gradient(45deg, rgba(255,173,173,0.3), rgba(255,214,165,0.3), rgba(253,255,182,0.3));
+  background-size: 200% 200%;
+  animation: rainbow 6s ease infinite;
+}
+.rainbow-bg-frontend:hover {
+  background: linear-gradient(45deg, rgba(255,173,173,0.6), rgba(255,214,165,0.6), rgba(253,255,182,0.6));
+  background-size: 200% 200%;
+  animation: rainbow 3s ease infinite;
+  transform: translateY(-1px);
 }
 
-.rainbow-bg:hover {
-  background: linear-gradient(45deg, rgba(255,173,173,0.6), rgba(255,214,165,0.6), rgba(253,255,182,0.6), rgba(202,255,191,0.6), rgba(155,246,255,0.6), rgba(160,196,255,0.6), rgba(189,178,255,0.6), rgba(255,198,255,0.6));
-  background-size: 300% 300%;
-  animation: rainbow 4s ease infinite;
+/* Backend: Cool Colors (Blues, Cyans, Purples) */
+.rainbow-bg-backend {
+  background: linear-gradient(45deg, rgba(160,196,255,0.3), rgba(155,246,255,0.3), rgba(189,178,255,0.3));
+  background-size: 200% 200%;
+  animation: rainbow 6s ease infinite;
+}
+.rainbow-bg-backend:hover {
+  background: linear-gradient(45deg, rgba(160,196,255,0.6), rgba(155,246,255,0.6), rgba(189,178,255,0.6));
+  background-size: 200% 200%;
+  animation: rainbow 3s ease infinite;
+  transform: translateY(-1px);
+}
+
+/* Database: Earth/Green Colors (Greens, Yellows) */
+.rainbow-bg-database {
+  background: linear-gradient(45deg, rgba(202,255,191,0.3), rgba(253,255,182,0.3), rgba(155,246,255,0.3));
+  background-size: 200% 200%;
+  animation: rainbow 6s ease infinite;
+}
+.rainbow-bg-database:hover {
+  background: linear-gradient(45deg, rgba(202,255,191,0.6), rgba(253,255,182,0.6), rgba(155,246,255,0.6));
+  background-size: 200% 200%;
+  animation: rainbow 3s ease infinite;
+  transform: translateY(-1px);
+}
+
+/* Default / Other */
+.rainbow-bg-other {
+  background: linear-gradient(45deg, rgba(255,198,255,0.3), rgba(189,178,255,0.3), rgba(255,173,173,0.3));
+  background-size: 200% 200%;
+  animation: rainbow 6s ease infinite;
+}
+.rainbow-bg-other:hover {
+  background: linear-gradient(45deg, rgba(255,198,255,0.6), rgba(189,178,255,0.6), rgba(255,173,173,0.6));
+  background-size: 200% 200%;
+  animation: rainbow 3s ease infinite;
   transform: translateY(-1px);
 }
 
@@ -191,12 +230,12 @@ body {
 }
 
 .section-title {
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   font-weight: 600;
   text-transform: uppercase;
-  color: var(--text-muted);
-  padding: 0.5rem 1rem;
-  background-color: #f3f4f6;
+  color: #ffffff; /* White Text */
+  padding: 0.6rem 1rem;
+  background-color: #374151; /* Dark Grey Background */
   border-bottom: 1px solid var(--border-color);
   letter-spacing: 0.05em;
   text-align: center;
@@ -207,6 +246,11 @@ body {
   align-items: center;
   gap: 0.5rem;
   font-size: 0.95rem;
+  transition: opacity 0.2s;
+}
+
+.link-title:hover {
+  opacity: 0.7;
 }
 
 .link-url {
