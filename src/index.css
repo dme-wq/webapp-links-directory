@@ -276,9 +276,9 @@ body {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  font-size: 0.95rem; /* Reduced font size */
+  font-size: 0.7rem; /* Reduced font size further (2x) */
   font-family: 'Fredoka', cursive, sans-serif;
-  font-weight: 700;
+  font-weight: 500; /* Removed bold (700) -> set to normal/medium (500) */
   letter-spacing: 0.02em;
   transition: opacity 0.2s, color 0.2s;
   word-break: break-word;
