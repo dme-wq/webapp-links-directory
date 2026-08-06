@@ -51,10 +51,10 @@ export default function CategoryCard({ category, links, onEditCategory, onDelete
 
   return (
     <div className="category-card">
-      <div className="card-header" style={{ backgroundColor: category.color, position: 'relative' }}>
-        <h3 style={{ flex: 1, textAlign: 'center', margin: 0, justifyContent: 'center' }}>
-          {category.title}
-        </h3>
+      <div className="card-header">
+        <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+          <h3 className="fancy-card-title" style={{ textAlign: 'center' }}>{category.title}</h3>
+        </div>
         <div className="card-header-actions" style={{ position: 'absolute', right: '1rem', top: '50%', transform: 'translateY(-50%)' }}>
           <button className="icon-button" onClick={() => onEditCategory(category)} title="Edit Title">
             <Edit2 size={16} />

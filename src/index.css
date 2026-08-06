@@ -89,6 +89,30 @@ body {
   color: white;
 }
 
+.card-title {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.fancy-card-title {
+  font-family: 'Lobster', cursive;
+  color: #ffffff !important;
+  font-size: 2rem;
+  margin: 0;
+  line-height: 1.2;
+  word-spacing: 0.2em;
+  letter-spacing: 0.05em;
+  text-shadow: 
+    1px 1px 0 #1a1a2e,
+    2px 2px 0 #1a1a2e,
+    3px 3px 0 #1a1a2e,
+    4px 4px 0 #1a1a2e,
+    5px 5px 0 #1a1a2e;
+  transform: rotate(-2deg);
+  display: inline-block;
+}
+
 .card-header h3 {
   font-size: 1.1rem;
   font-weight: 600;
@@ -513,45 +537,45 @@ body {
 .digital-clock {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.3rem;
   background: rgba(255, 255, 255, 0.7);
   backdrop-filter: blur(12px);
-  padding: 0.6rem 1.8rem;
-  border-radius: 50px;
+  padding: 0.3rem 0.8rem;
+  border-radius: 30px;
   box-shadow: 
     inset 0 0 0 1px rgba(255, 255, 255, 0.5),
-    0 10px 25px -5px rgba(0, 0, 0, 0.1);
+    0 5px 15px -3px rgba(0, 0, 0, 0.1);
   color: #1a1a2e;
   font-family: 'Poppins', sans-serif;
   border: 1px solid rgba(255,255,255,0.4);
 }
 
 .digital-clock .time {
-  font-size: 2.2rem;
+  font-size: 0.95rem;
   font-weight: 700;
   display: flex;
   align-items: center;
-  letter-spacing: 2px;
-  text-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  letter-spacing: 1px;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.05);
 }
 
 .digital-clock .colon {
-  margin: 0 4px;
+  margin: 0 2px;
   animation: blink 1s step-start infinite;
   color: #b01017;
   font-weight: 600;
 }
 
 .digital-clock .ampm {
-  font-size: 1rem;
+  font-size: 0.65rem;
   font-weight: 700;
   color: #ffffff;
   background: #b01017;
-  padding: 0.2rem 0.6rem;
-  border-radius: 8px;
-  margin-top: 4px;
-  margin-left: 0.5rem;
-  box-shadow: 0 4px 6px -1px rgba(176, 16, 23, 0.4);
+  padding: 0.15rem 0.4rem;
+  border-radius: 6px;
+  margin-top: 1px;
+  margin-left: 0.2rem;
+  box-shadow: 0 2px 4px -1px rgba(176, 16, 23, 0.4);
 }
 
 @keyframes blink {
