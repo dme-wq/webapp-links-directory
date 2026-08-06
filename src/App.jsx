@@ -174,8 +174,7 @@ function App() {
         <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', textAlign: 'left' }}>
           <img src="https://static.wixstatic.com/media/68b92a_d71e34133826499983234774dea1945b~mv2.png/v1/fill/w_186,h_156,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/RKD-Logo.png" alt="Logo" style={{ height: '60px' }} />
           <div>
-            <h1 style={{ margin: 0 }}>WebApps Directory</h1>
-            <p style={{ margin: 0 }}>Organize and manage your web application links</p>
+            <h1 className="fancy-header-title">WebApps Directory</h1>
           </div>
         </div>
         <button 
