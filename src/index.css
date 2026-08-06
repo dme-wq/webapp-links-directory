@@ -176,6 +176,23 @@ body {
   border-bottom: none;
 }
 
+.link-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.section-title {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  padding: 0.5rem 1rem;
+  background-color: #f3f4f6;
+  border-bottom: 1px solid var(--border-color);
+  letter-spacing: 0.05em;
+  text-align: center;
+}
+
 .link-title {
   display: flex;
   align-items: center;

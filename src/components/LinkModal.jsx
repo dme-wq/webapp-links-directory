@@ -3,14 +3,17 @@ import { useState, useEffect } from 'react';
 export default function LinkModal({ isOpen, onClose, onSave, initialData }) {
   const [title, setTitle] = useState('');
   const [url, setUrl] = useState('');
+  const [section, setSection] = useState('Frontend');
 
   useEffect(() => {
     if (initialData) {
       setTitle(initialData.title || '');
       setUrl(initialData.url || '');
+      setSection(initialData.section || 'Frontend');
     } else {
       setTitle('');
       setUrl('');
+      setSection('Frontend');
     }
   }, [initialData, isOpen]);
 
@@ -22,7 +25,7 @@ export default function LinkModal({ isOpen, onClose, onSave, initialData }) {
     if (!/^https?:\/\//i.test(finalUrl)) {
       finalUrl = 'http://' + finalUrl;
     }
-    onSave({ title, url: finalUrl });
+    onSave({ title, url: finalUrl, section });
   };
 
   return (
@@ -34,6 +37,18 @@ export default function LinkModal({ isOpen, onClose, onSave, initialData }) {
         </div>
         <form onSubmit={handleSubmit}>
           <div className="form-group">
+            <label>Section</label>
+            <select 
+              className="form-control" 
+              value={section} 
+              onChange={e => setSection(e.target.value)}
+            >
+              <option value="Frontend">Frontend</option>
+              <option value="Backend">Backend</option>
+              <option value="Database">Database</option>
+            </select>
+          </div>
+          <div className="form-group">
             <label>Link Title</label>
             <input 
               type="text" 
@@ -41,7 +56,7 @@ export default function LinkModal({ isOpen, onClose, onSave, initialData }) {
               value={title} 
               onChange={e => setTitle(e.target.value)} 
               required
-              placeholder="e.g. My Nextjs Dashboard"
+              placeholder="e.g. Vercel Dashboard"
             />
           </div>
           <div className="form-group">
@@ -52,7 +67,7 @@ export default function LinkModal({ isOpen, onClose, onSave, initialData }) {
               value={url} 
               onChange={e => setUrl(e.target.value)} 
               required
-              placeholder="e.g. google.com or https://..."
+              placeholder="e.g. vercel.com or https://..."
             />
           </div>
           <div className="modal-actions">
