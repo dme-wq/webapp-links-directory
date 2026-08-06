@@ -509,3 +509,51 @@ body {
   gap: 1rem;
   margin-top: 2rem;
 }
+
+.digital-clock {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  padding: 0.6rem 1.8rem;
+  border-radius: 50px;
+  box-shadow: 
+    inset 0 0 0 1px rgba(255, 255, 255, 0.5),
+    0 10px 25px -5px rgba(0, 0, 0, 0.1);
+  color: #1a1a2e;
+  font-family: 'Poppins', sans-serif;
+  border: 1px solid rgba(255,255,255,0.4);
+}
+
+.digital-clock .time {
+  font-size: 2.2rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  letter-spacing: 2px;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.digital-clock .colon {
+  margin: 0 4px;
+  animation: blink 1s step-start infinite;
+  color: #b01017;
+  font-weight: 600;
+}
+
+.digital-clock .ampm {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #ffffff;
+  background: #b01017;
+  padding: 0.2rem 0.6rem;
+  border-radius: 8px;
+  margin-top: 4px;
+  margin-left: 0.5rem;
+  box-shadow: 0 4px 6px -1px rgba(176, 16, 23, 0.4);
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
