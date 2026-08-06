@@ -51,7 +51,7 @@ export default function CategoryCard({ category, links, onEditCategory, onDelete
 
   return (
     <div className="category-card">
-      <div className="card-header">
+      <div className="card-header" style={{ backgroundColor: category.color || 'var(--color-blue)', position: 'relative' }}>
         <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
           <h3 className="fancy-card-title" style={{ textAlign: 'center' }}>{category.title}</h3>
         </div>
