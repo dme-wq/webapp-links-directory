@@ -37,7 +37,7 @@ export default function CategoryModal({ isOpen, onClose, onSave, initialData }) 
 
   return (
     <div className="modal-overlay" onClick={onClose}>
-      <div className="modal-content" onClick={e => e.stopPropagation()}>
+      <div className="modal-content glass-modal" onClick={e => e.stopPropagation()}>
         <div className="modal-header">
           <h2>{initialData ? 'Edit Title' : 'New Title'}</h2>
           <button className="icon-button" onClick={onClose}>&times;</button>

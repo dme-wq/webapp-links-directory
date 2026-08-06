@@ -3,7 +3,9 @@ import { supabase } from './supabaseClient';
 import CategoryCard from './components/CategoryCard';
 import CategoryModal from './components/CategoryModal';
 import LinkModal from './components/LinkModal';
+import ConfirmModal from './components/ConfirmModal';
 import { Plus } from 'lucide-react';
+import { Toaster, toast } from 'react-hot-toast';
 import './index.css';
 
 function App() {
@@ -18,6 +20,8 @@ function App() {
   const [isLinkModalOpen, setIsLinkModalOpen] = useState(false);
   const [editingLink, setEditingLink] = useState(null);
   const [activeCategoryId, setActiveCategoryId] = useState(null); // Which category the link belongs to
+
+  const [confirmConfig, setConfirmConfig] = useState({ isOpen: false, title: '', message: '', onConfirm: null });
 
   useEffect(() => {
     fetchData();
@@ -41,7 +45,10 @@ function App() {
       .select('*')
       .order('created_at', { ascending: true });
 
-    if (linkError) console.error("Error fetching links:", linkError);
+    if (linkError) {
+      console.error("Error fetching links:", linkError);
+      toast.error("Failed to load links");
+    }
     else setLinks(linksData || []);
 
     setLoading(false);
@@ -59,6 +66,9 @@ function App() {
       
       if (!error && data) {
         setCategories(categories.map(c => c.id === data[0].id ? data[0] : c));
+        toast.success("Title updated successfully!");
+      } else if (error) {
+        toast.error("Failed to update title");
       }
     } else {
       // Insert
@@ -69,24 +79,35 @@ function App() {
         
       if (!error && data) {
         setCategories([...categories, data[0]]);
+        toast.success("Title created successfully!");
+      } else if (error) {
+        toast.error("Failed to create title");
       }
     }
     setIsCategoryModalOpen(false);
     setEditingCategory(null);
   };
 
-  const handleDeleteCategory = async (id) => {
-    if (!window.confirm('Are you sure you want to delete this title and all its links?')) return;
-    
-    const { error } = await supabase
-      .from('categories')
-      .delete()
-      .eq('id', id);
-      
-    if (!error) {
-      setCategories(categories.filter(c => c.id !== id));
-      setLinks(links.filter(l => l.category_id !== id));
-    }
+  const handleDeleteCategory = (id) => {
+    setConfirmConfig({
+      isOpen: true,
+      title: 'Delete Title',
+      message: 'Are you sure you want to delete this title and all its links? This action cannot be undone.',
+      onConfirm: async () => {
+        const { error } = await supabase
+          .from('categories')
+          .delete()
+          .eq('id', id);
+          
+        if (!error) {
+          setCategories(categories.filter(c => c.id !== id));
+          setLinks(links.filter(l => l.category_id !== id));
+          toast.success("Title deleted successfully");
+        } else {
+          toast.error("Failed to delete title");
+        }
+      }
+    });
   };
 
   // --- Link Handlers ---
@@ -101,6 +122,9 @@ function App() {
       
       if (!error && data) {
         setLinks(links.map(l => l.id === data[0].id ? data[0] : l));
+        toast.success("Link updated successfully!");
+      } else if (error) {
+        toast.error("Failed to update link");
       }
     } else {
       // Insert
@@ -111,9 +135,10 @@ function App() {
         
       if (!error && data) {
         setLinks([...links, data[0]]);
+        toast.success("Link added successfully!");
       } else if (error) {
         console.error("Link Insert Error:", error);
-        alert(`Error saving link: ${error.message}\n\nDid you run the SQL command to add the 'section' column in Supabase?`);
+        toast.error(`Error saving link: ${error.message}`);
       }
     }
     setIsLinkModalOpen(false);
@@ -121,21 +146,30 @@ function App() {
     setActiveCategoryId(null);
   };
 
-  const handleDeleteLink = async (id) => {
-    if (!window.confirm('Are you sure you want to delete this link?')) return;
-    
-    const { error } = await supabase
-      .from('links')
-      .delete()
-      .eq('id', id);
-      
-    if (!error) {
-      setLinks(links.filter(l => l.id !== id));
-    }
+  const handleDeleteLink = (id) => {
+    setConfirmConfig({
+      isOpen: true,
+      title: 'Delete Link',
+      message: 'Are you sure you want to delete this link? This action cannot be undone.',
+      onConfirm: async () => {
+        const { error } = await supabase
+          .from('links')
+          .delete()
+          .eq('id', id);
+          
+        if (!error) {
+          setLinks(links.filter(l => l.id !== id));
+          toast.success("Link deleted successfully");
+        } else {
+          toast.error("Failed to delete link");
+        }
+      }
+    });
   };
 
   return (
     <div className="container">
+      <Toaster position="bottom-right" toastOptions={{ style: { background: '#333', color: '#fff', borderRadius: '8px' } }} />
       <header className="header">
         <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', textAlign: 'left' }}>
           <img src="https://static.wixstatic.com/media/68b92a_d71e34133826499983234774dea1945b~mv2.png/v1/fill/w_186,h_156,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/RKD-Logo.png" alt="Logo" style={{ height: '60px' }} />
@@ -201,6 +235,14 @@ function App() {
         initialData={editingLink}
         onClose={() => setIsLinkModalOpen(false)}
         onSave={handleSaveLink}
+      />
+
+      <ConfirmModal 
+        isOpen={confirmConfig.isOpen}
+        title={confirmConfig.title}
+        message={confirmConfig.message}
+        onConfirm={confirmConfig.onConfirm}
+        onCancel={() => setConfirmConfig({ ...confirmConfig, isOpen: false })}
       />
     </div>
   );
