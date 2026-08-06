@@ -275,7 +275,7 @@ body {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  font-size: 0.85rem; /* Slightly larger as serif fonts appear smaller */
+  font-size: 0.65rem; /* Reduced font size significantly (2x smaller) */
   font-family: 'Playfair Display', serif; /* Replaced Fredoka with elegant serif */
   font-weight: 600; /* Semi-bold for good visibility */
   letter-spacing: 0.02em;
