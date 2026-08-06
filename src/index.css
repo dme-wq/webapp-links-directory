@@ -451,17 +451,18 @@ body {
   background-color: #b01017; /* Deep red background */
   padding: 0.5rem 1.5rem;
   border-radius: 12px;
-  font-size: 2.5rem;
+  font-size: 2.8rem; /* Slightly larger */
   margin: 0;
   line-height: 1.3;
-  -webkit-text-stroke: 1.5px #1a1a2e;
+  word-spacing: 0.3em;
+  letter-spacing: 0.05em;
+  /* Removed heavy text-stroke that was eating the white color */
   text-shadow: 
     1px 1px 0 #1a1a2e,
     2px 2px 0 #1a1a2e,
     3px 3px 0 #1a1a2e,
     4px 4px 0 #1a1a2e,
-    5px 5px 0 #1a1a2e,
-    6px 6px 0 #1a1a2e;
+    5px 5px 0 #1a1a2e;
   transform: rotate(-2deg);
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
   display: inline-block;
