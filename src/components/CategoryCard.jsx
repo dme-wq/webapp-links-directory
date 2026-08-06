@@ -15,7 +15,6 @@ export default function CategoryCard({ category, links, onEditCategory, onDelete
     if (sectionLinks.length === 0) return null;
     return (
       <div className="link-section">
-        <h4 className="section-title">{title}</h4>
         <ul className="link-list">
           {sectionLinks.map(link => {
             // Determine class suffix, default to 'other' if not match
