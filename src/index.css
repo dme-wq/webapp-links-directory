@@ -272,7 +272,7 @@ body {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  font-size: 1.1rem;
+  font-size: 0.95rem; /* Reduced font size */
   font-family: 'Fredoka', cursive, sans-serif;
   font-weight: 700;
   letter-spacing: 0.02em;
