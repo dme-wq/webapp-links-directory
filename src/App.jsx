@@ -111,6 +111,9 @@ function App() {
         
       if (!error && data) {
         setLinks([...links, data[0]]);
+      } else if (error) {
+        console.error("Link Insert Error:", error);
+        alert(`Error saving link: ${error.message}\n\nDid you run the SQL command to add the 'section' column in Supabase?`);
       }
     }
     setIsLinkModalOpen(false);
