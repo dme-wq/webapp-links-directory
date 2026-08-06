@@ -1,14 +1,16 @@
-import { Edit2, Trash2, ExternalLink } from 'lucide-react';
+import { useState } from 'react';
+import { Edit2, Trash2, ExternalLink, ChevronDown, ChevronUp } from 'lucide-react';
 
 export default function CategoryCard({ category, links, onEditCategory, onDeleteCategory, onAddLink, onEditLink, onDeleteLink }) {
+  const [isDescExpanded, setIsDescExpanded] = useState(false);
+
   return (
     <div className="category-card">
-      <div className="card-header" style={{ backgroundColor: category.color }}>
-        <h3>
+      <div className="card-header" style={{ backgroundColor: category.color, position: 'relative' }}>
+        <h3 style={{ flex: 1, textAlign: 'center', margin: 0, justifyContent: 'center' }}>
           {category.title}
-          <span className="link-count">({links.length})</span>
         </h3>
-        <div className="card-header-actions">
+        <div className="card-header-actions" style={{ position: 'absolute', right: '1rem', top: '50%', transform: 'translateY(-50%)' }}>
           <button className="icon-button" onClick={() => onEditCategory(category)} title="Edit Title">
             <Edit2 size={16} />
           </button>
@@ -19,8 +21,20 @@ export default function CategoryCard({ category, links, onEditCategory, onDelete
       </div>
       
       {category.description && (
-        <div className="card-description">
-          {category.description}
+        <div className="card-description-container">
+          <button 
+            className="desc-toggle-btn"
+            onClick={() => setIsDescExpanded(!isDescExpanded)}
+          >
+            {isDescExpanded ? <ChevronUp size={16} /> : <ChevronDown size={16} />} 
+            {isDescExpanded ? 'Hide Description' : 'Show Description'}
+          </button>
+          
+          {isDescExpanded && (
+            <div className="card-description">
+              {category.description}
+            </div>
+          )}
         </div>
       )}
       
@@ -31,8 +45,8 @@ export default function CategoryCard({ category, links, onEditCategory, onDelete
           </li>
         )}
         {links.map(link => (
-          <li key={link.id} className="link-item">
-            <div className="link-title">
+          <li key={link.id} className="link-item rainbow-bg">
+            <div className="link-title" style={{ flex: 1, textAlign: 'center', justifyContent: 'center' }}>
               {link.title}
             </div>
             <div className="link-actions">
