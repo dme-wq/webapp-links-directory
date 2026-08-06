@@ -5,6 +5,7 @@ import CategoryModal from './components/CategoryModal';
 import LinkModal from './components/LinkModal';
 import ConfirmModal from './components/ConfirmModal';
 import Clock from './components/Clock';
+import LockScreen from './components/LockScreen';
 import { Plus } from 'lucide-react';
 import { Toaster, toast } from 'react-hot-toast';
 import './index.css';
@@ -13,6 +14,9 @@ function App() {
   const [categories, setCategories] = useState([]);
   const [links, setLinks] = useState([]);
   const [loading, setLoading] = useState(true);
+  
+  // Authentication state
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   // Modal states
   const [isCategoryModalOpen, setIsCategoryModalOpen] = useState(false);
@@ -167,6 +171,10 @@ function App() {
       }
     });
   };
+
+  if (!isAuthenticated) {
+    return <LockScreen onUnlock={() => setIsAuthenticated(true)} />;
+  }
 
   return (
     <div className="container">
