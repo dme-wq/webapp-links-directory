@@ -17,7 +17,7 @@ function App() {
   const [loading, setLoading] = useState(true);
   
   // Authentication state
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(() => localStorage.getItem('isAuthenticated') === 'true');
 
   // Modal states
   const [isCategoryModalOpen, setIsCategoryModalOpen] = useState(false);
@@ -174,7 +174,10 @@ function App() {
   };
 
   if (!isAuthenticated) {
-    return <LockScreen onUnlock={() => setIsAuthenticated(true)} />;
+    return <LockScreen onUnlock={() => {
+      setIsAuthenticated(true);
+      localStorage.setItem('isAuthenticated', 'true');
+    }} />;
   }
 
   return (
