@@ -195,7 +195,6 @@ function App() {
           </div>
 
           <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap', justifyContent: 'flex-end' }}>
-            <h1 className="fancy-header-title" style={{ fontSize: '1.8rem', padding: '0.4rem 1rem' }}>RKD Furnishings Private Limited</h1>
             <button 
               className="btn-primary"
               onClick={() => {
